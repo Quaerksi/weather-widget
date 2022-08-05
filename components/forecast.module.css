@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: row;
     height: 100%;
-    gap: .5rem;
+    gap: .6rem;
     justify-content: space-arround;
 }
 
@@ -70,7 +70,7 @@
      display: none;
  }
 
-@media(max-width: 27em ){
+@media(max-width: 28.5em ){
  
     .forecastFlex{
         display: flex;

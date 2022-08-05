@@ -27,11 +27,12 @@ export default function Layout({children}){
                 />
                 <meta property="og:site_name" content={SITE_NAME} key="ogsitename"/>
             </Head>
-            <header>The {SITE_NAME}</header>
+            <header>The {SITE_NAME}  - Coding Challenge by Juliette Salevsky</header>
             <main>{children}</main>
             <footer>
-                <Link href="https://www.flaticon.com/free-icons">Pics by flaticon</Link>
-                <p>Coding Challenge by Juliette Salevsky</p>
+                <Link href="https://www.flaticon.com/">
+                    <a target="_blank">Pics by flaticon</a>
+                </Link>
             </footer>
         </div>
     )

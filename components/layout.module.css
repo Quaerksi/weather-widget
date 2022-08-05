@@ -13,6 +13,9 @@
 {
     min-height: 10vh;
     background-color:aquamarine;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .container > *:nth-child(2){

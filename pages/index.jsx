@@ -29,8 +29,11 @@ export default function Widget(props) {
   /***************forecast Data end********************************************************************** */
     
   const handleData = location => {
-      
-    fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?key=FK5HXPC57W977BW6Q2732WJHX&contentType=json`).then(res=>{
+
+    // key=3C8J5WCQHMGA7K7V8C37E2E52
+    // another key=FK5HXPC57W977BW6Q2732WJHX
+    // queries are limited
+    fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?key=3C8J5WCQHMGA7K7V8C37E2E52&contentType=json`).then(res=>{
     
       if(res.ok){
         setValidLocation(state => true)
@@ -45,18 +48,17 @@ export default function Widget(props) {
       
       if(data.address){
 
-
         scrolllToWidget.current.scrollIntoView();
         /***************current Data start********************************************************************** */
 
-        let precipitationTruth = data.currentConditions.precipprob ? data.currentConditions.precipprob : 0
+        let precipitationTruth = data.currentConditions.precipprob ? Math.round(data.currentConditions.precipprob) : 0
         let windspeed = data.currentConditions.windspeed ? Calculations.milesToKilometers(data.currentConditions.windspeed) :0
-        let cloudcover = data.currentConditions.cloudcover ? data.currentConditions.cloudcover : 0
+        let cloudcover = data.currentConditions.cloudcover ? Math.round(data.currentConditions.cloudcover) : 0
 
         addCurrent({
           resolvedLocation: data.resolvedAddress,
           temp: Calculations.FahrenheitToDegree(data.currentConditions.temp),
-          humidity: data.currentConditions.humidity,
+          humidity: Math.round(data.currentConditions.humidity),
           precipitationTruth: precipitationTruth,
           windSpeed: windspeed,
           conditions: data.currentConditions.conditions,
@@ -74,8 +76,8 @@ export default function Widget(props) {
           let day = ''
           const tempMax = Calculations.FahrenheitToDegree(data.days[i].tempmax)
           const tempMin = Calculations.FahrenheitToDegree(data.days[i].tempmin)
-          let precipitationTruth = data.days[i].precipprob ? data.days[i].precipprob : 0
-          let cloudcover = data.days[i].cloudcover ? data.days[i].cloudcover : 0
+          let precipitationTruth = data.days[i].precipprob ? Math.round(data.days[i].precipprob) : 0
+          let cloudcover = data.days[i].cloudcover ? Math.round(data.days[i].cloudcover) : 0
 
           if(i == 0){
 
@@ -116,17 +118,17 @@ export default function Widget(props) {
   } 
 
   useEffect(() => {
-    // handleData('Berlin');
+    handleData('Berlin');
   }, []);
 
   return (
     <Layout>
-      <p>Hello You, searching for Weather Data</p>
+      <p>Hello Are you looking for weather data?</p>
       <form mehtod="POST" id="getWeatherData" onSubmit={submitLocation} className={`${layoutStyles.form}`}>
           <label htmlFor="location" className={`${styles.marginRight}`}>Weather for location:</label>
           <div>
             <input type="text" name="location" className={`${styles.marginRight}`} placeholder="Berlin"></input>
-            <button type="submit">Submit</button>
+            <button type="submit">Search</button>
           </div>
       </form>  
       <div className={`${styles.resolvedAddress}`}>
