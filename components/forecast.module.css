@@ -1,0 +1,133 @@
+.forecastFlex{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    gap: .5rem;
+    justify-content: space-arround;
+}
+
+.forecastGrid{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    grid-template-rows: 2rem 3.5rem 3rem 1.7rem 1.6rem 1.6rem;
+}
+
+.forecastGridData{
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+}
+
+.forecastGrid:first-child,
+.forecastGrid:last-child{
+    margin-right: 0;
+}
+
+.forecastGridHeadlines{
+    width: 50%;
+    justify-content: end;
+}
+
+.dayHeadline{
+    font-size: .8rem;
+    margin-top: 0;
+    margin-bottom: .3rem;
+    color: rgb(240, 240, 104);
+}
+
+.oneWordPerLine{
+    width: min-content;
+    margin-inline: auto;
+    padding-bottom: .2rem; 
+ }
+
+ .currentDataImage{
+     justify-self: center;
+ }
+
+ .tempMax{
+     color: rgb(255, 8, 8);
+ }
+
+ .tempMin{
+     color: rgb(0, 110, 255);
+ }
+
+ .cloudyImg {
+     height: 3rem;
+     justify-self: center;
+     align-self: end;
+     margin-top: .7rem;
+ }
+
+ .imageBig{
+    display: none
+ }
+
+ .imageHumiditySmallScreen{
+     display: none;
+ }
+
+@media(max-width: 27em ){
+ 
+    .forecastFlex{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .forecastGridHeadlines{
+        display: none;
+    }
+
+    .forecastGrid{
+        font-size: 1rem;
+        margin-top: 1rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid white;
+    }
+
+    .dayHeadline{
+        font-size: 1.2em;
+    }
+
+    .oneWordPerLine{
+        width: max-content;
+        margin-inline: auto;
+        padding-bottom: .2rem; 
+     }
+
+     
+    .imageHumiditySmallScreen{
+        display: inline-block;
+        margin-right: .3rem;
+    }
+}
+
+@media(min-width: 62em ){
+
+.forecastGrid{
+    grid-template-rows: 2rem 4rem 4rem 1.7rem 1.6rem 1.6rem;
+}
+
+.forecast-flex{
+    gap: 0rem
+}
+
+.dayHeadline{
+    font-size: 1.2rem;
+}
+
+.forecastGrid{
+    row-gap: .4rem;
+}
+
+.imageSmall{
+    display: none;
+}
+
+.imageBig{
+    display: block;
+}
+}

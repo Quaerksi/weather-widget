@@ -1,0 +1,69 @@
+.widget{
+  font-family: Helvetica;
+  font-weight: bold;
+  font-size: .8rem;
+  max-width: 78rem;
+  min-width: 19rem;
+  padding-block: 1rem;
+  padding-inline: 1rem;
+  background-color: rgb(107, 166, 214);
+  color: white;
+  border-radius: 1rem;
+
+  display: grid;
+  align-items: stretch;
+}
+
+.marginRight{
+  margin-right: 1rem;
+}
+
+.currentConditionsHeader{
+  font-size: 1.5rem;
+  display: grid;
+
+}
+
+.resolvedLocation{
+  margin: 0;
+  align-self: center;
+  text-align: center;
+}
+
+.currentDataImage{
+  height: 20px;
+}
+
+.resolvedAddress{
+  display: grid;
+  height: 4rem;
+  font-size: 1.2rem;
+}
+
+.resolvedAddress > *{
+  align-self: center;
+}
+
+@media(min-width: 62em ){
+  .widget{
+    grid-template-columns: 1fr 3fr;
+    min-width: min-content;
+    gap: 1.3rem;
+    font-size: 1rem;
+    padding-right: 1rem;
+  }
+
+  .currentDataImage{
+    height: 25px;
+  }
+
+  .currentConditionsHeader{
+    height: 2.5rem;
+    text-align: center;
+    grid-column: 1/span 2;
+  }
+
+  .currentConditionsLeftSite{
+    justify-content: space-evenly;
+  }
+}

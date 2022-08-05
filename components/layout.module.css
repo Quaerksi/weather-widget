@@ -1,0 +1,29 @@
+.container{
+    position: relative;
+    min-width: 19rem;
+    font-size: 1.5rem;
+}
+
+.container > *{
+    padding: 1rem;
+}
+
+.container > *:first-child,
+.container > *:last-child
+{
+    min-height: 10vh;
+    background-color:aquamarine;
+}
+
+.container > *:nth-child(2){
+    margin-block: 2rem;
+}
+
+/* page specific */
+.form{
+    margin-bottom: 1rem;
+}
+
+.form > input {
+    margin-right: 1rem;
+}
