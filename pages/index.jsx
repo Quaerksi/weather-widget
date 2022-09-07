@@ -123,7 +123,7 @@ export default function Widget(props) {
   } 
 
   useEffect(() => {
-    // handleData('Berlin');
+    handleData('Berlin');
   }, []);
 
   return (

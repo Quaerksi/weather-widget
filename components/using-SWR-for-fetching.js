@@ -10,7 +10,7 @@ export default function Profile() {
   // const [location, setLocation] = useState('bbb')
 
   // Use a ternary operator to only fetch the data when the ID isn't undefined
-  const { data, error } = useSWR(location ? `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?key=FK5HXPC57W977BW6Q2732WJHX&contentType=json` : null, fetcher)
+  const { data, error } = useSWR(location ? `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?key=${process.env.NEXT_PUBLIC_KEY}&contentType=json` : null, fetcher)
 
   if (error) return <div>failed to load</div>
   if (!data) return <div>loading...</div>
